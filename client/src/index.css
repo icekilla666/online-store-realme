@@ -5,7 +5,7 @@
 :root {
   --color-primary: #f3f3f3;
   --color-secondary: #393e46;
-  --color-button: #8B5CF6;
+  --color-button: #8b5cf6;
   --color-wrapper: #ffffff;
   --color-border: rgb(0 0 0 / 0.1);
 }
@@ -14,7 +14,7 @@
   :root {
     --color-primary: #222222;
     --color-secondary: #dddddd;
-    --color-button: #8B5CF6;
+    --color-button: #8b5cf6;
     --color-wrapper: #1a1a1a;
     --color-border: rgb(255 255 255 / 0.1);
   }
@@ -23,7 +23,7 @@
 .dark {
   --color-primary: #222222;
   --color-secondary: #dddddd;
-  --color-button: #8B5CF6;
+  --color-button: #8b5cf6;
   --color-wrapper: #1a1a1a;
   --color-border: rgb(255 255 255 / 0.1);
 }
@@ -48,6 +48,13 @@ p {
 
 @layer components {
   .container {
-    @apply mx-auto w-full max-w-screen-2xl px-6
+    @apply mx-auto w-full max-w-screen-2xl px-6;
+  }
+
+  .flex-center-col {
+    @apply flex justify-center flex-col items-center;
+  }
+  .input {
+    @apply mt-1 p-3 text-black/60 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-button focus:ring-button block w-full rounded-md sm:text-sm focus:ring-1;
   }
 }
