@@ -5,7 +5,7 @@
 :root {
   --color-primary: #f3f3f3;
   --color-secondary: #393e46;
-  --color-button: #3f7f9f;
+  --color-button: #8B5CF6;
   --color-wrapper: #ffffff;
   --color-border: rgb(0 0 0 / 0.1);
 }
@@ -14,7 +14,7 @@
   :root {
     --color-primary: #222222;
     --color-secondary: #dddddd;
-    --color-button: #3f7f9f;
+    --color-button: #8B5CF6;
     --color-wrapper: #1a1a1a;
     --color-border: rgb(255 255 255 / 0.1);
   }
@@ -23,7 +23,7 @@
 .dark {
   --color-primary: #222222;
   --color-secondary: #dddddd;
-  --color-button: #3f7f9f;
+  --color-button: #8B5CF6;
   --color-wrapper: #1a1a1a;
   --color-border: rgb(255 255 255 / 0.1);
 }
@@ -44,4 +44,10 @@ h2 {
 }
 p {
   font-size: 16px;
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-screen-2xl px-6
+  }
 }

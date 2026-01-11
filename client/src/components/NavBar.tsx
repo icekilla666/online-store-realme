@@ -41,11 +41,11 @@ const NavBar = observer(() => {
         className="mx-auto flex max-w-screen-2xl items-center justify-between p-6 lg:px-8 w-full"
       >
         <div className="flex lg:flex-1">
-          <NavLink to={HOME_ROUTE} className="-m-1.5 p-1.5">
+          <NavLink to={HOME_ROUTE} className="-m-1.5 p-1.5 bg-button rounded-sm">
             <span className="sr-only">Your Company</span>
             <img
               alt=""
-              src="/public/logo.svg"
+              src="/logo.svg"
               className="h-8 w-auto"
             />
           </NavLink>
@@ -134,11 +134,11 @@ const NavBar = observer(() => {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-wrapper p-6 sm:max-w-sm sm:ring-1 sm:ring-border">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="#" className="-m-1.5 p-1.5 bg-button rounded-sm">
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
-                src="/public/logo.svg"
+                src="/logo.svg"
                 className="h-8 w-auto"
               />
             </a>
