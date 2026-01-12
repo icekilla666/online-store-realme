@@ -87,7 +87,7 @@ const NavBar = observer(() => {
                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-primary group-hover:bg-wrapper">
                       <item.icon
                         aria-hidden="true"
-                        className="size-6 text-gray-400 group-hover:"
+                        className="size-6 text-gray-400 group-hover:bg-primary"
                       />
                     </div>
                     <div className="flex-auto">
