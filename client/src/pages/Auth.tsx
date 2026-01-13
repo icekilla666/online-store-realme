@@ -1,4 +1,3 @@
-import { Button } from "@headlessui/react";
 import { useStore } from "../utils/context";
 import FadeContent from "../components/ui/FadeContent";
 import { NavLink, useLocation } from "react-router-dom";
