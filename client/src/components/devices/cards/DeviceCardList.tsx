@@ -1,5 +1,5 @@
 import MyButton from "@/components/ui/Button";
-import type { IDevice } from "@/store/DeviceStore";
+import type { DeviceCardProps } from "@/utils/types";
 import { StarIcon } from "@heroicons/react/20/solid";
 
 const DeviceCardList = ({
@@ -9,11 +9,13 @@ const DeviceCardList = ({
   shortDesc,
   rating,
   price,
-}: IDevice) => {
+  onClick
+}: DeviceCardProps) => {
   return (
     <article
-      className="flex gap-7 py-[15px] px-[30px] bg-wrapper rounded-[30px]"
       key={id}
+      onClick={onClick}
+      className="flex cursor-pointer gap-7 py-[15px] px-[30px] bg-wrapper rounded-[30px]"
     >
       <div className="overflow-hidden flex items-center w-full max-w-fit h-[290px]">
         <img className="w-max" src={img} alt={name} />

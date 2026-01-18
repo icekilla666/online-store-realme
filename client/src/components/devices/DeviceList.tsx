@@ -1,15 +1,16 @@
 import { observer } from "mobx-react-lite";
 import DropdownSelect from "../ui/DropdownSelect";
-import { useState } from "react";
+import React, { useState } from "react";
 import { StretchHorizontal, LayoutGrid } from "lucide-react";
 import { useStore } from "@/utils/context";
-import MyButton from "../ui/Button";
-import { StarIcon } from "@heroicons/react/20/solid";
 import DeviceCardList from "./cards/DeviceCardList";
 import DeviceCardGrid from "./cards/DeviceCardGrid";
+import { useNavigate } from "react-router-dom";
+import { DEVICE_ROUTE } from "@/utils/constants";
 
 const DeviceList = observer(() => {
   const { device } = useStore();
+  const navigate = useNavigate();
   const [selectedSort, setSelectedSort] = useState("no");
   const [viewSwitcher, setViewSwitcher] = useState("list");
   const handleSortChange = (value: string) => {
@@ -45,29 +46,31 @@ const DeviceList = observer(() => {
       </div>
 
       <div className={`grid gap-4 ${viewSwitcher === "grid" && "grid-cols-3"}`}>
-        {device.devices.map((device) => (
-          <>
-            {viewSwitcher === "grid" ? (
-              <DeviceCardGrid
-                id={device.id}
-                img={device.img}
-                name={device.name}
-                shortDesc={device.shortDesc}
-                rating={device.rating}
-                price={device.price}
-              />
-            ) : (
-              <DeviceCardList
-                id={device.id}
-                img={device.img}
-                name={device.name}
-                shortDesc={device.shortDesc}
-                rating={device.rating}
-                price={device.price}
-              />
-            )}
-          </>
-        ))}
+        {device.devices.map((device) =>
+          viewSwitcher === "grid" ? (
+            <DeviceCardGrid
+              key={device.id}
+              id={device.id}
+              img={device.img}
+              name={device.name}
+              shortDesc={device.shortDesc}
+              rating={device.rating}
+              price={device.price}
+              onClick={() => navigate(DEVICE_ROUTE + "/" + device.id)}
+            />
+          ) : (
+            <DeviceCardList
+              key={device.id}
+              id={device.id}
+              img={device.img}
+              name={device.name}
+              shortDesc={device.shortDesc}
+              rating={device.rating}
+              price={device.price}
+              onClick={() => navigate(DEVICE_ROUTE + "/" + device.id)}
+            />
+          ),
+        )}
       </div>
     </div>
   );

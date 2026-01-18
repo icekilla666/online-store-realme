@@ -1,5 +1,5 @@
 import MyButton from "@/components/ui/Button";
-import type { IDevice } from "@/store/DeviceStore";
+import type { DeviceCardProps } from "@/utils/types";
 import { StarIcon } from "@heroicons/react/20/solid";
 
 const DeviceCardGrid = ({
@@ -9,11 +9,13 @@ const DeviceCardGrid = ({
   shortDesc,
   rating,
   price,
-}: IDevice) => {
+  onClick
+}: DeviceCardProps) => {
   return (
     <article
-      className="flex flex-col items-center gap-8 pt-5 pb-7 px-4 bg-wrapper rounded-[30px]"
+      onClick={onClick}
       key={id}
+      className="flex cursor-pointer flex-col items-center gap-8 pt-5 pb-7 px-4 bg-wrapper rounded-[30px]"
     >
       <div className="h-[250px] flex justify-center items-center w-full">
         <img src={img} alt={name} />
