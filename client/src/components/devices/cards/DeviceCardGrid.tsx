@@ -18,7 +18,7 @@ const DeviceCardGrid = ({
       className="flex cursor-pointer flex-col items-center gap-8 pt-5 pb-7 px-4 bg-wrapper rounded-[30px]"
     >
       <div className="h-[250px] flex justify-center items-center w-full">
-        <img src={img} alt={name} />
+        <img className="h-full object-contain" src={img} alt={name} />
       </div>
 
       <div className="flex w-full flex-col justify-between pt-4 border-t-2 border-border gap-8">
@@ -34,7 +34,7 @@ const DeviceCardGrid = ({
         </div>
 
         <div className="flex gap-3">
-          <span className="text-[30px]">{price}$</span>
+          <span className="text-[30px]">${new Intl.NumberFormat('en-EN').format(price)}</span>
           <MyButton className="bg-transparent border-2 rounded-lg border-custom p-2 uppercase w-full hover:bg-custom">
             buy
           </MyButton>

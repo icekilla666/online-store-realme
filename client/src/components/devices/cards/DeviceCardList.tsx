@@ -17,8 +17,8 @@ const DeviceCardList = ({
       onClick={onClick}
       className="flex cursor-pointer gap-7 py-[15px] px-[30px] bg-wrapper rounded-[30px]"
     >
-      <div className="overflow-hidden flex items-center w-full max-w-fit h-[290px]">
-        <img className="w-max" src={img} alt={name} />
+      <div className="overflow-hidden flex items-center w-full max-w-[250px] h-[300px]">
+        <img className=" h-full object-contain" src={img} alt={name} />
       </div>
       <div className="flex w-full justify-between py-2">
         <div className="flex flex-col justify-between">
@@ -33,7 +33,7 @@ const DeviceCardList = ({
         </div>
 
         <div className="flex flex-col gap-2">
-          <span className="text-[30px]">{price}$</span>
+          <span className="text-[30px]">${new Intl.NumberFormat('en-EN').format(price)}</span>
           <MyButton className="bg-transparent border-2 rounded-lg border-custom p-2 uppercase hover:bg-custom">
             buy
           </MyButton>
