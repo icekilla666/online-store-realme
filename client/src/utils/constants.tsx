@@ -1,4 +1,5 @@
 import type { TabArrayProps } from "@/types/types";
+
 import {
   DevicePhoneMobileIcon,
   TvIcon,
@@ -12,7 +13,11 @@ import {
   CircleStackIcon,
   WifiIcon,
   Squares2X2Icon,
+  InformationCircleIcon,
+  HeartIcon,
+  Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
+import { Info } from "lucide-react";
 
 export const ADMIN_ROUTE = "/admin";
 export const SHOP_ROUTE = "/shop";
@@ -160,5 +165,22 @@ export const DEVICE_PAGE_TABS: TabArrayProps[] = [
   {
     value: "specifications",
     name: "Specifications",
+  },
+];
+export const DASHBOARD_TABS: TabArrayProps[] = [
+  {
+    value: "profile",
+    name: "Profile Information",
+    img: <InformationCircleIcon />,
+  },
+  {
+    value: "wishlist",
+    name: "Favourite Products",
+    img: <HeartIcon />,
+  },
+  {
+    value: "settings",
+    name: "Account Settings",
+    img: <Cog6ToothIcon />,
   },
 ];

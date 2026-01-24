@@ -1,12 +1,14 @@
+import type React from "react";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface IUser {
-  id: number;
+  id?: number;
   email: string;
   name?: string;
+  lastname?: string;
+  phone?: string;
   role?: "user" | "admin";
 }
-
 export interface ITypes {
   id: number;
   name: string;
@@ -22,6 +24,12 @@ export interface IDevice {
   price: number;
   rating: number;
   img: string;
+}
+
+export interface HeadProps {
+  title: string;
+  description?: string;
+  className?: string;
 }
 export interface DeviceCardProps extends IDevice {
   onClick: () => void;
@@ -63,7 +71,7 @@ export interface QuantityCounterProps {
 export interface TabArrayProps {
   value: string;
   name: string;
-  img?: string;
+  img?: React.ReactNode | string;
 }
 
 export interface TabProps {
@@ -71,4 +79,19 @@ export interface TabProps {
   isActive?: string;
   className?: string;
   onChange: (value: string) => void;
+}
+export interface SideBarInfoProps extends IUser {
+  onChange: (value: string) => void;
+}
+export interface SettingsProps extends IUser {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSave: () => void;
+  onLogout: () => void;
+}
+export interface FavouriteProductsProps {
+  devices: IDevice[];
+}
+
+export interface ProfileInfoProps extends IUser, FavouriteProductsProps {
+  onClick: () => void;
 }
