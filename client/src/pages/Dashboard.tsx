@@ -1,6 +1,8 @@
+import { useStore } from '@/utils/context';
+import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 
-const DashboardPage = () => {
+const DashboardPage = observer(() => {
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({
@@ -10,14 +12,7 @@ const DashboardPage = () => {
     phoneNumber: '+1 (555) 987-6543'
   });
 
-  const favoriteProducts = [
-    { id: 1, name: 'MacBook Pro 16"', price: '$2,499', image: '💻', category: 'Laptops' },
-    { id: 2, name: 'iPhone 15 Pro', price: '$999', image: '📱', category: 'Phones' },
-    { id: 3, name: 'Sony WH-1000XM5', price: '$399', image: '🎧', category: 'Audio' },
-    { id: 4, name: 'Apple Watch Ultra', price: '$799', image: '⌚', category: 'Wearables' },
-    { id: 5, name: 'iPad Air', price: '$599', image: '📱', category: 'Tablets' },
-    { id: 6, name: 'PlayStation 5', price: '$499', image: '🎮', category: 'Gaming' }
-  ];
+  const { device } = useStore();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +24,6 @@ const DashboardPage = () => {
 
   const handleSave = () => {
     setIsEditing(false);
-    // Здесь отправка данных на сервер
   };
 
   return (
@@ -134,27 +128,29 @@ const DashboardPage = () => {
                     <p className="text-[var(--color-secondary)] mt-2">Your saved products for quick access</p>
                   </div>
                   <span className="bg-[var(--color-primary)] text-[var(--color-custom)] px-4 py-2 rounded-lg font-medium">
-                    {favoriteProducts.length} items
+                    {device.devices.length} items
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {favoriteProducts.map((product) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {device.devices.map((product) => (
                     <div 
                       key={product.id}
                       className="border border-[var(--color-border)] rounded-xl p-4 hover:border-[var(--color-custom)] transition-colors group"
                     >
                       <div className="flex items-start mb-4">
                         <div className="w-12 h-12 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-2xl mr-4">
-                          {product.image}
+                          <img src={product.img} alt={product.name}/>
                         </div>
                         <div>
                           <h3 className="font-bold text-[var(--color-def)] group-hover:text-[var(--color-custom)] transition-colors">
                             {product.name}
                           </h3>
                           <span className="text-xs px-2 py-1 bg-[var(--color-primary)] text-[var(--color-secondary)] rounded-full mt-1">
-                            {product.category}
+                            {product.rating}
                           </span>
+                          <p>{product.shortDesc}</p>
+                          <span>{product.price}</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
@@ -308,7 +304,7 @@ const DashboardPage = () => {
                       </div>
                       <div className="p-4 bg-[var(--color-primary)] rounded-lg">
                         <p className="text-sm text-[var(--color-secondary)] mb-1">Favorite Items</p>
-                        <p className="text-2xl font-bold text-[var(--color-def)]">{favoriteProducts.length}</p>
+                        <p className="text-2xl font-bold text-[var(--color-def)]">{device.devices.length}</p>
                       </div>
                       <div className="p-4 bg-[var(--color-primary)] rounded-lg">
                         <p className="text-sm text-[var(--color-secondary)] mb-1">Account Status</p>
@@ -333,6 +329,6 @@ const DashboardPage = () => {
         </div>
     </section>
   );
-};
+});
 
 export default DashboardPage;

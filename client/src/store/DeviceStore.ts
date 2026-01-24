@@ -1,21 +1,5 @@
+import type { IBrand, IDevice, ITypes } from "@/types/types";
 import { makeAutoObservable } from "mobx";
-
-export interface ITypes {
-  id: number;
-  name: string;
-}
-export interface IBrand {
-  id: number;
-  name: string;
-}
-export interface IDevice {
-  id: number;
-  name: string;
-  shortDesc: string;
-  price: number;
-  rating: number;
-  img: string;
-}
 
 export default class DeviceStore {
   private _types: ITypes[] = [
