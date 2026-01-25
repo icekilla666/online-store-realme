@@ -1,11 +1,5 @@
+import type { IUser } from "@/types/types";
 import { makeAutoObservable } from "mobx";
-
-export interface IUser {
-  id: number;
-  email: string;
-  name?: string;
-  role?: "user" | "admin";
-}
 
 export default class UserStore {
   private _isAuth: boolean = false;

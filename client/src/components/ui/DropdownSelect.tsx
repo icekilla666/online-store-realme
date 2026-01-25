@@ -1,21 +1,10 @@
+import type { DropdownSelectProps } from "@/types/types";
+import { options } from "@/utils/constants";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-interface DropdownSelectProps {
-  value: string;
-  onChange: (value: string) => void;
-}
-
 const DropdownSelect: React.FC<DropdownSelectProps> = ({ value, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const options = [
-    { value: "no", label: "no" },
-    { value: "price-asc", label: "Price: Low to High" },
-    { value: "price-desc", label: "Price: High to Low" },
-    { value: "date-newest", label: "Newest First" },
-    { value: "date-oldest", label: "Oldest First" },
-  ];
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
   return (

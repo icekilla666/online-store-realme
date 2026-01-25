@@ -40,6 +40,7 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
       <input
         type="text"
         value={quantity}
+        onChange={() => console.log('')}
         min={min}
         max={max}
         className="text-center w-full bg-transparent py-1 focus:outline-none cursor-default"

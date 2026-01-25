@@ -1,21 +1,5 @@
+import type { IBrand, IDevice, ITypes } from "@/types/types";
 import { makeAutoObservable } from "mobx";
-
-export interface ITypes {
-  id: number;
-  name: string;
-}
-export interface IBrand {
-  id: number;
-  name: string;
-}
-export interface IDevice {
-  id: number;
-  name: string;
-  shortDesc: string;
-  price: number;
-  rating: number;
-  img: string;
-}
 
 export default class DeviceStore {
   private _types: ITypes[] = [
@@ -67,6 +51,30 @@ export default class DeviceStore {
     },
     {
       id: 4,
+      name: "Realme 10 Pro",
+      shortDesc: "Desctiption of Realme 10 Pro",
+      price: 20000,
+      rating: 5,
+      img: "/test.png",
+    },
+    {
+      id: 5,
+      name: "Realme 10 Pro",
+      shortDesc: "Desctiption of Realme 10 Pro",
+      price: 20000,
+      rating: 5,
+      img: "/test.png",
+    },
+    {
+      id: 6,
+      name: "Realme 10 Pro",
+      shortDesc: "Desctiption of Realme 10 Pro",
+      price: 20000,
+      rating: 5,
+      img: "/test.png",
+    },
+    {
+      id: 7,
       name: "Realme 10 Pro",
       shortDesc: "Desctiption of Realme 10 Pro",
       price: 20000,
